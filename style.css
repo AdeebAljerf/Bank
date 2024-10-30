@@ -63,15 +63,23 @@ nav {
 
 .login__btn {
   border: none;
-  background: none;
+  background: linear-gradient(to right, #39b385, #9be15d);
   font-size: 2.2rem;
-  color: inherit;
+  color: #fff;
   cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 10rem;
   transition: all 0.3s;
 }
 
 .login__btn:hover,
-.login__btn:focus,
+.login__btn:focus {
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-position: right center;
+}
+
 .btn--sort:hover,
 .btn--sort:focus {
   outline: none;
@@ -166,7 +174,9 @@ nav {
   grid-row: 2 / span 3;
   background-color: #fff;
   border-radius: 1rem;
-  overflow: scroll;
+  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+  overflow-y: auto; /* Shows vertical scrollbar when needed */
+  scrollbar-width: thin; /* For Firefox */
 }
 
 .movements__row {

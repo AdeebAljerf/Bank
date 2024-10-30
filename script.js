@@ -314,6 +314,8 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
+  if (!currentAccount) alert('Wrong username or password');
+
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${
