@@ -25,8 +25,9 @@ const account1 = {
     '2020-07-12T10:51:36.790Z',
     '2024-03-13T09:42:57.532Z',
   ],
-  currency: 'EUR',
+  currency: 'USD',
   locale: 'pt-PT', // de-DE
+  // currency: 'EUR',
 };
 
 const account2 = {
@@ -45,8 +46,8 @@ const account2 = {
     '2020-06-25T18:49:59.371Z',
     '2020-07-26T12:01:20.894Z',
   ],
-  currency: 'USD',
-  locale: 'en-US',
+  currency: 'EUR',
+  locale: 'ar-SY',
 };
 
 const accounts = [account1, account2];
@@ -139,6 +140,59 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+//?-----------------------------------------------------------
+const modal = document.querySelector('.modal');
+const createAccountLink = document.querySelector('.create-account-link');
+const closeModal = document.querySelector('.close-modal');
+const createAccountForm = document.querySelector('.create-account-form');
+
+createAccountLink.addEventListener('click', function () {
+  modal.classList.remove('hidden');
+});
+
+closeModal.addEventListener('click', function () {
+  modal.classList.add('hidden');
+});
+
+createAccountForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const fullName = document.querySelector('.create-name').value;
+  const initialDeposit = +document.querySelector('.create-deposit').value;
+  const pin = +document.querySelector('.create-pin').value;
+
+  const newAccount = {
+    owner: fullName,
+    movements: [initialDeposit],
+    interestRate: 1.2,
+    pin: pin,
+    movementsDates: [new Date().toISOString()],
+    currency: 'EUR',
+    locale: navigator.language,
+  };
+
+  newAccount.username = fullName;
+  // .toLowerCase()
+  // .split(' ')
+  // .map(name => name[0])
+  // .join('');
+
+  accounts.push(newAccount);
+  console.log(accounts);
+  // Auto login
+  currentAccount = newAccount;
+  updateUI(currentAccount);
+
+  // Show success and hide modal
+  modal.classList.add('hidden');
+  containerApp.style.opacity = 100;
+  labelWelcome.textContent = `Welcome ${fullName.split(' ')[0]}`;
+
+  // Reset timer
+  if (timer) clearInterval(timer);
+  timer = starterLogOutTimer();
+});
 
 /////////////////////////////////////////////////
 // Functions
