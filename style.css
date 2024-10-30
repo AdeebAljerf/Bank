@@ -66,6 +66,7 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 4rem; /* Add fixed height */
   border: none;
   background: linear-gradient(to right, #39b385, #9be15d);
   font-size: 2.2rem;
@@ -340,6 +341,11 @@ h2 {
 }
 
 .form__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 1rem; /* Add fixed height */
+  width: 100%;
   border: none;
   border-radius: 0.7rem;
   font-size: 1.8rem;
