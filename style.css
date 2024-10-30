@@ -334,15 +334,9 @@ h2 {
 .timer {
   font-weight: 600;
 }
-/* Desktop screens (1200px and up) */
-@media screen and (min-width: 1200px) {
-  html {
-    font-size: 62.5%;
-  }
-}
 
 /* Medium screens (992px to 1199px) */
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 75em) {
   html {
     font-size: 56.25%;
   }
@@ -380,14 +374,14 @@ h2 {
 }
 
 /* Tablet screens (768px to 991px) */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 62em) {
   html {
     font-size: 50%;
   }
 }
 
 /* Mobile screens (767px and below) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 48em) {
   .app {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto repeat(3, 14rem) auto;
