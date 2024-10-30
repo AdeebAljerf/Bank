@@ -10,7 +10,7 @@
 // DIFFERENT DATA! Contains movement dates, currency and locale
 
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Adeeb Aljerf',
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // %
   pin: 1111,
@@ -30,7 +30,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Hanan aljerf',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -50,7 +50,69 @@ const account2 = {
 };
 
 const accounts = [account1, account2];
+// const btnCreate = document.querySelector('.create-btn');
 
+// const createNewAccount = function (e) {
+//   e.preventDefault();
+
+//   const fullName = document.querySelector('.create-name').value;
+//   const initialDeposit = +document.querySelector('.create-deposit').value;
+//   const pin = +document.querySelector('.create-pin').value;
+
+//   const newAccount = {
+//     owner: fullName,
+//     movements: [initialDeposit],
+//     interestRate: 1.2,
+//     pin: pin,
+//     movementsDates: [new Date().toISOString()],
+//     currency: 'EUR',
+//     locale: navigator.language,
+//   };
+
+//   newAccount.username = fullName
+//     .toLowerCase()
+//     .split(' ')
+//     .map(name => name[0])
+//     .join('');
+//   accounts.push(newAccount);
+
+//   // Auto login
+//   currentAccount = newAccount;
+
+//   // Show UI and message
+//   labelWelcome.textContent = `Welcome back, ${
+//     currentAccount.owner.split(' ')[0]
+//   }`;
+//   containerApp.style.opacity = 100;
+
+//   // Current date and time
+//   const now = new Date();
+//   const options = {
+//     hour: 'numeric',
+//     minute: 'numeric',
+//     month: 'long',
+//     year: 'numeric',
+//     weekday: 'long',
+//   };
+//   labelDate.textContent = new Intl.DateTimeFormat(
+//     currentAccount.locale,
+//     options
+//   ).format(now);
+
+//   // Clear form fields
+//   document.querySelector('.create-name').value = '';
+//   document.querySelector('.create-deposit').value = '';
+//   document.querySelector('.create-pin').value = '';
+
+//   // Update UI
+//   updateUI(currentAccount);
+
+//   // Start timer
+//   if (timer) clearInterval(timer);
+//   timer = starterLogOutTimer();
+// };
+
+// btnCreate.addEventListener('click', createNewAccount);
 /////////////////////////////////////////////////
 // Elements
 const labelWelcome = document.querySelector('.welcome');
