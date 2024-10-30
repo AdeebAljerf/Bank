@@ -26,7 +26,7 @@ const account1 = {
     '2024-03-13T09:42:57.532Z',
   ],
   currency: 'USD',
-  locale: 'pt-PT', // de-DE
+  locale: 'en-US', // de-DE
   // currency: 'EUR',
 };
 
@@ -147,14 +147,16 @@ const createAccountLink = document.querySelector('.create-account-link');
 const closeModal = document.querySelector('.close-modal');
 const createAccountForm = document.querySelector('.create-account-form');
 
+//? open pop up window when creating an account
 createAccountLink.addEventListener('click', function () {
   modal.classList.remove('hidden');
 });
-
+//? close pop up window when creating an account
 closeModal.addEventListener('click', function () {
   modal.classList.add('hidden');
 });
 
+//? creating new account
 createAccountForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -168,8 +170,9 @@ createAccountForm.addEventListener('submit', function (e) {
     interestRate: 1.2,
     pin: pin,
     movementsDates: [new Date().toISOString()],
-    currency: 'EUR',
-    locale: navigator.language,
+    currency: 'USD',
+    locale: 'en-US',
+    // locale: navigator.language,
   };
 
   newAccount.username = fullName;
@@ -440,13 +443,19 @@ btnTransfer.addEventListener('click', function (e) {
     // Reset Timer
     clearInterval(timer);
     timer = starterLogOutTimer();
-  }
+  } else alert('Wrong username or amount');
 });
 
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
   const amount = Math.floor(inputLoanAmount.value);
+
+  if (amount <= 0) alert('Loan amount must be positive');
+  if (!currentAccount.movements.some(mov => mov >= amount * 0.1))
+    alert(
+      'You need at least one deposit of 10% or more of the requested loan amount'
+    );
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     setTimeout(function () {
