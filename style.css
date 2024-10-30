@@ -62,6 +62,10 @@ nav {
 }
 
 .login__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   border: none;
   background: linear-gradient(to right, #39b385, #9be15d);
   font-size: 2.2rem;
@@ -174,9 +178,24 @@ nav {
   grid-row: 2 / span 3;
   background-color: #fff;
   border-radius: 1rem;
-  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
-  overflow-y: auto; /* Shows vertical scrollbar when needed */
-  scrollbar-width: thin; /* For Firefox */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+.movements::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.movements::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1rem;
+}
+
+.movements::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1rem;
 }
 
 .movements__row {
@@ -514,6 +533,11 @@ h2 {
     grid-row: 2;
     justify-self: start;
     font-size: 1.4rem;
+  }
+  .logout-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .form {
     grid-template-columns: 2fr 2fr 1fr;
